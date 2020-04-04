@@ -143,6 +143,10 @@ class RemoteForm(object):
                 remote_field_class_name = 'Remote{}'.format('TimeField')
             elif issubclass(field.__class__, forms.DateTimeField):
                 remote_field_class_name = 'Remote{}'.format('DateTimeField')
+            elif issubclass(field.__class__, forms.ModelMultipleChoiceField):
+                remote_field_class_name = 'Remote{}'.format('ModelMultipleChoiceField')
+            elif issubclass(field.__class__, forms.MultipleChoiceField):
+                remote_field_class_name = 'Remote{}'.format('MultipleChoiceField')
             elif issubclass(field.__class__, forms.ChoiceField):
                 remote_field_class_name = 'Remote{}'.format('ChoiceField')
             try:

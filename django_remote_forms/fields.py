@@ -193,8 +193,11 @@ class RemoteMultipleChoiceField(RemoteChoiceField):
 
 
 class RemoteModelMultipleChoiceField(RemoteMultipleChoiceField):
+
     def as_dict(self):
-        return super(RemoteModelMultipleChoiceField, self).as_dict()
+        field_dict = super().as_dict()
+        field_dict["initial"] = [dict(pk=f.pk, username="foo") for f in field_dict["initial"]]
+        return field_dict
 
 
 class RemoteTypedMultipleChoiceField(RemoteMultipleChoiceField):
